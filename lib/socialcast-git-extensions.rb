@@ -74,7 +74,8 @@ module Socialcast
   end
   def start_tickets(tickets)
     tickets.each do |ticket|
-      transition_ticket_if_has_status ticket, 1, 11
+      action_id = ticket.type == 1 ? 11 : 21
+      transition_ticket_if_has_status ticket, 1, action_id
     end
   end
   def resolve_tickets(tickets)
